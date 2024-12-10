@@ -66,7 +66,7 @@ body {
 .clock .hand.h{
   background-color: #212121;
   width: 6px;
-  height: calc(var(--clock-radius) - 100px);
+  height: calc(var(--clock-radius) - 110px);
 }
 .clock .hand.m{
   background-color: #212121;
@@ -75,7 +75,7 @@ body {
 }
 .clock .hand.s{
   background-color: #212121;
-  width: 5px;
+  width: 3px;
   height: calc(var(--clock-radius) - 30px);
 }
 .clock .hand.ms {

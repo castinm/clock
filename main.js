@@ -24,7 +24,8 @@ function update(clock_style, { h, m, s }) {
   const mnode = document.querySelector(`.${clock_style} .m`);
   const snode = document.querySelector(`.${clock_style} .s`);
 
-  hnode.style.transform = `rotate(${ (h/ 24) * 360 }deg)`;
+  console.log("TIME", h, m, s);
+  hnode.style.transform = `rotate(${ (h/ 12) * 360 }deg)`;
   mnode.style.transform = `rotate(${ (m/ 60) * 360 }deg)`;
   snode.style.transform = `rotate(${ (s/ 60) * 360 }deg)`;
 }
