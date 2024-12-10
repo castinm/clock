@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  --clock-radius: 250px;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+  font-family: 'Roboto';
+}
+
+.clock {
+  position: relative;
+  width: calc(var(--clock-radius) * 2);
+  height: 500px;
+  border-radius: 50%;
+  border: 2px solid #212121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock .center {
+  position: absolute;
+  margin: 50% 50%;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 5px;
+  overflow: visible;
+}
+
+.clock .center .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  border: 1px solid #212121;
+  border-radius: 5px;
+}
+
+.clock .hand {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transform-origin: 50% calc(100% - 10px);
+  box-sizing: border-box;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.clock .hand.h{
+  background-color: #212121;
+  width: 6px;
+  height: calc(var(--clock-radius) - 100px);
+}
+.clock .hand.m{
+  background-color: #212121;
+  width: 6px;
+  height: calc(var(--clock-radius) - 80px);
+}
+.clock .hand.s{
+  background-color: #212121;
+  width: 5px;
+  height: calc(var(--clock-radius) - 30px);
+}
+.clock .hand.ms {
+  background-color: #212121;
+  width: 5px;
+  height: calc(var(--clock-radius) - 20px);
+}
+
+.digital {
+  border-radius: 10px;
+  width: max-content;
+  height: 100px;
+  color: #212121;
+  font-weight: bold;
+  font-size: 44px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 100px 20px 100px 20px 100px 20px 100px;
+  text-align: center;
+}
+.digital .separator {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 35px 0px;
+}
+.digital .separator span {
+  width: 10px;
+  height: 10px;
+  background-color: #212121;
+}
+
+/* Clock labels Clock labels  */ 
+.labels {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.labels .hours {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.labels .hours div {
+  position: absolute;
+}
+
+.labels .hours div {
+  --padding: 20px;
+  --angle: calc(var(--idx) * 30deg);
+  --radius: calc(var(--clock-radius) - var(--padding));
+  --x: calc(50% + var(--radius) * cos(var(--angle)));
+  --y: calc(50% - var(--radius) * sin(var(--angle)));
+  top: var(--y);
+  left: var(--x);
+  transform: translateX(-50%) translateY(-50%);
+}
